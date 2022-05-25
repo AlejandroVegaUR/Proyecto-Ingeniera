@@ -1,0 +1,23 @@
+id_empleado;nombre;apellido;rol;id_jefe;id_aereolinea
+3866;Jeremy;Hughes;gerente  pilotos;;2343
+1942;Brett;Castro;gerente recursos humanos;;8964
+1895;Collin;Odom;gerente Auxiliar de Tierra;;1234
+1855;Jennifer;Lloyd;gerente Tripulante de Cabina de Pasajeros;;9820
+3550;Jessica;Morales;Gerente Tecnico administrativo;;1982
+4878;Keith;Craig;Tripulante de Cabina de Pasajeros;1855;9820
+1174;Mr.;Billy;piloto;3866;2343
+1122;Bradley;Moran;Tripulante de Cabina de Pasajeros;1855;9820
+5653;Tricia;Bailey;Tripulante de Cabina de Pasajeros;1855;9820
+4926;Barbara;Chambers;piloto;3866;2343
+5777;Martin;Webster;piloto;3866;2343
+5952;Barbara;Page;Tripulante de Cabina de Pasajeros;1855;9820
+5511;Tina;Brown;Auxiliar de Tierra;1895;1234
+4364;Pamela;Beasley;Auxiliar de Tierra;1895;1234
+2122;Matthew;Guerrero;Tecnico administrativo;3550;1982
+1788;Brent;Hubbard;piloto;3866;2343
+1967;Lindsey;Williamson;Tripulante de Cabina de Pasajeros;1855;9820
+4931;John;Allen;Tecnico administrativo;3550;1982
+5955;Mr.;Brian;Auxiliar de Tierra;1895;1234
+5385;Michael;Cunningham;Tecnico administrativo;3550;1982
+3492;Stephen;Faulkner;piloto;3866;2343
+1024;Eric ;Phillips;Tripulante de Cabina de Pasajeros;1855;9820
