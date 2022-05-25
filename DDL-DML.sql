@@ -56,6 +56,20 @@ CREATE TABLE tickets(
 	FOREIGN KEY (id_vuelo) REFERENCES vuelo(id_vuelo)
 );
 
+CREATE TABLE Empleados(
+	id_empleado INT PRIMARY KEY,
+	nombre VARCHAR(80) NOT NULL,
+	apellido  VARCHAR(80) NOT NULL,
+	rol  VARCHAR(80) NOT NULL,
+	id_jefe smallint, 
+	id_aerolinea smallint REFERENCES aerolineas(id_aerolinea)
+);
+
+CREATE TABLE salarios(
+	id_empleado INT PRIMARY KEY REFERENCES empleados(id_empleado), 
+	salario REAL
+
+);
 /*
 DROP table tickets;
 DROP  table vuelo;
@@ -70,13 +84,16 @@ DROP table marcas;
 
 
 
+
 --DML
 
-COPY aeropuertos FROM 'coloque aquí su ruta/Aeropuerto.csv' HEADER CSV DELIMITER ';';
-COPY marcas FROM 'coloque aquí su ruta/marcas.csv' HEADER CSV DELIMITER ';';
-COPY modelos FROM 'coloque aquí su ruta/modelos.csv' HEADER CSV DELIMITER ';';
-COPY aerolineas FROM 'coloque aquí su ruta/aerolineas.csv' HEADER CSV DELIMITER ';';
-COPY pasajeros FROM 'coloque aquí su ruta/pasajeros.csv' HEADER CSV DELIMITER ';';
-COPY aviones FROM 'coloque aquí su ruta/aviones.csv' HEADER CSV DELIMITER ';';
-COPY vuelo FROM 'coloque aquí su ruta/vuelos.csv' HEADER CSV DELIMITER ';';
-COPY tickets FROM 'coloque aquí su ruta/tickets.csv' HEADER CSV DELIMITER ';';
+COPY aeropuertos FROM 'pegue aqui su direccion de memoria\Aeropuerto.csv' HEADER CSV DELIMITER ';';
+COPY marcas FROM 'pegue aqui su direccion de memoria\marcas.csv' HEADER CSV DELIMITER ';';
+COPY modelos FROM 'pegue aqui su direccion de memoria\modelos.csv' HEADER CSV DELIMITER ';';
+COPY aerolineas FROM 'pegue aqui su direccion de memoria\aerolineas.csv' HEADER CSV DELIMITER ';';
+COPY pasajeros FROM 'pegue aqui su direccion de memoria\pasajeros.csv' HEADER CSV DELIMITER ';';
+COPY aviones FROM 'pegue aqui su direccion de memoria\aviones.csv' HEADER CSV DELIMITER ';';
+COPY vuelo FROM 'pegue aqui su direccion de memoria\vuelos.csv' HEADER CSV DELIMITER ';';
+COPY tickets FROM 'pegue aqui su direccion de memoria\tickets.csv' HEADER CSV DELIMITER ';';
+COPY Empleados FROM 'pegue aqui su direccion de memoria\empleado.csv' HEADER CSV DELIMITER ';';
+COPY salarios FROM 'pegue aqui su direccion de memoria\salarios.csv' HEADER CSV DELIMITER ';';
