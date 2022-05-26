@@ -21,12 +21,14 @@ def nacionalidad():
     return """SELECT nacionalidad , COUNT(*) total
                 FROM pasajeros 
                 NATURAL JOIN tickets GROUP BY nacionalidad ORDER BY total desc LIMIT 20"""
-def destino():
-    return"""SELECT ciudad,COUNT(*) total
-            FROM vuelo natural JOIN aeropuertos group by ciudad;
-        
-    """
+
+
 def modelos():
     return """				
             SELECT nombre,COUNT(*) total
             FROM  aviones natural JOIN modelos group by nombre;"""
+def mapa():
+    return """
+   select codigo_pais, count(*) as total
+from vuelo natural join aeropuertos  group by (codigo_pais);
+    """

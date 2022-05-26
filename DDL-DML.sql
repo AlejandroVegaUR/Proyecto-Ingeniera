@@ -27,7 +27,8 @@ CREATE TABLE aerolineas(
 CREATE TABLE aeropuertos(
 	ID_aeropuerto INT PRIMARY KEY, 
   	nombre varchar(80) NOT NULL,
-  	ciudad VARCHAR(80) NOT NULL
+  	codigo_pais VARCHAR(80) NOT NULL,
+	FOREIGN KEY(codigo_pais) REFERENCES paises(iso_alpha)
 );
 
 CREATE TABLE aviones(
@@ -70,6 +71,13 @@ CREATE TABLE salarios(
 	salario REAL
 
 );
+
+CREATE TABLE paises(
+	iso_alpha VARCHAR(80) PRIMARY KEY, 
+	nombre VARCHAR(80)
+
+);
+
 /*
 DROP table tickets;
 DROP  table vuelo;
@@ -81,14 +89,12 @@ DROP table pasajeros;
 DROP table marcas;
 DROP table empleados;
 DROP table salarios;
+DROP table paises;
 */
-
-
-
-
 
 --DML
 
+COPY paises FROM 'pegue aqui su direccion de memoria\pais.csv' HEADER CSV DELIMITER ';';
 COPY aeropuertos FROM 'pegue aqui su direccion de memoria\Aeropuerto.csv' HEADER CSV DELIMITER ';';
 COPY marcas FROM 'pegue aqui su direccion de memoria\marcas.csv' HEADER CSV DELIMITER ';';
 COPY modelos FROM 'pegue aqui su direccion de memoria\modelos.csv' HEADER CSV DELIMITER ';';
