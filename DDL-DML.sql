@@ -80,17 +80,17 @@ CREATE TABLE salarios(
 );
 
 /*
-DROP table tickets;
-DROP  table vuelo;
-DROP  TABLE Aviones;
-DROP TABLE Aeropuertos;
-DROP  TABLE Aerolineas;
-DROP  table modelos;
-DROP table pasajeros;
-DROP table marcas;
-DROP table empleados;
-DROP table salarios;
-DROP table paises;
+DROP table tickets cascade;
+DROP  table vuelo cascade;
+DROP  TABLE Aviones cascade;
+DROP TABLE Aeropuertos cascade;
+DROP  TABLE Aerolineas cascade;
+DROP  table modelos cascade;
+DROP table pasajeros cascade;
+DROP table marcas cascade;
+DROP table empleados cascade;
+DROP table salarios cascade;
+DROP table paises cascade;
 */
 
 --DML
