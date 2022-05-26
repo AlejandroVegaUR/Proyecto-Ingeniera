@@ -194,3 +194,152 @@ SELECT nombre, COUNT(*)
 FROM aviones 
 NATURAL JOIN aerolineas
 GROUP BY nombre;
+
+--Consultas sobre los empleados
+
+--todos los empleados de lufthansa
+CREATE VIEW empleados_lufthansa AS
+SELECT * FROM empleados NATURAL JOIN salarios
+WHERE id_aerolinea = 9820;
+
+SELECT * FROM empleados_lufthansa 
+
+--todos los empleados de singapore
+CREATE VIEW empleados_singapore AS
+SELECT * FROM empleados NATURAL JOIN salarios
+WHERE id_aerolinea = 2343;
+
+SELECT * FROM empleados_singapore;
+
+--todos los empleados de qatar
+CREATE VIEW empleados_qatar AS
+SELECT * FROM empleados NATURAL JOIN salarios
+WHERE id_aerolinea = 8964;
+
+SELECT * FROM empleados_qatar;
+
+--todos los empleados de nipon
+CREATE VIEW empleados_nipon AS
+SELECT * FROM empleados NATURAL JOIN salarios
+WHERE id_aerolinea = 1234;
+
+SELECT * FROM empleados_nipon;
+
+--Promedio de salario por cargo 
+SELECT rol, ROUND( AVG( salario )::numeric, 2 ) avg_rental
+FROM empleados E
+JOIN salarios S
+ON E.id_empleado =S.id_empleado
+GROUP BY rol
+ORDER BY avg_rental DESC;
+
+--transacciones
+
+-- En retribución a su gran trabajo, la aerolinea lufthansa ha decidido aumentar en un millón de pesos el salario de Keith craig 
+BEGIN; 
+
+UPDATE salarios
+SET salario = salario +10000000
+WHERE id_empleado = 4878;
+
+--cometimos un error y aumentamos el salario en 10 millones en vez de 1 millón
+ROLLBACK;
+
+--iniciamos la transaccion nuevamente
+BEGIN; 
+UPDATE salarios
+SET salario = salario +1000000
+WHERE id_empleado = 4878;
+
+COMMIT;
+
+--Se busca el cambio de la fecha de llegada del vuelo WN4239 debido al retraso en la salida de 2 horas
+BEGIN; 
+UPDATE vuelo
+SET fecha_salida = '2022-06-04 10:30:00'
+WHERE id_vuelo = 'WN4239';
+
+COMMIT;
+BEGIN; 
+UPDATE vuelo
+SET fecha_llegada = '2022-06-04 13:30:00'
+WHERE id_vuelo = 'WN4239';
+
+COMMIT;
+
+--consultas recursivas sobre empleados
+
+--todos los empleados de Jeremy Hughes
+with recursive subordinados
+	as(
+
+		select id_jefe, id_empleado, nombre, apellido 
+		from Empleados 
+		where id_empleado = 3866
+		union 
+		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
+		from Empleados e
+		inner join subordinados s on s.id_empleado = e.id_jefe
+
+	)
+select * from subordinados;
+
+--todos los empleados de Brett Castro
+with recursive subordinados
+	as(
+
+		select id_jefe, id_empleado, nombre, apellido 
+		from Empleados 
+		where id_empleado = 1942
+		union 
+		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
+		from Empleados e
+		inner join subordinados s on s.id_empleado = e.id_jefe
+
+	)
+select * from subordinados;
+
+--todos los empleados de Collin Odom
+with recursive subordinados
+	as(
+
+		select id_jefe, id_empleado, nombre, apellido 
+		from Empleados 
+		where id_empleado = 1895
+		union 
+		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
+		from Empleados e
+		inner join subordinados s on s.id_empleado = e.id_jefe
+
+	)
+select * from subordinados;
+
+--todos los empleados de Jennifer Lloyd
+with recursive subordinados
+	as(
+
+		select id_jefe, id_empleado, nombre, apellido 
+		from Empleados 
+		where id_empleado = 1855
+		union 
+		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
+		from Empleados e
+		inner join subordinados s on s.id_empleado = e.id_jefe
+
+	)
+select * from subordinados;
+
+--todos los empleados de Jessica Morales
+with recursive subordinados
+	as(
+
+		select id_jefe, id_empleado, nombre, apellido 
+		from Empleados 
+		where id_empleado = 3550
+		union 
+		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
+		from Empleados e
+		inner join subordinados s on s.id_empleado = e.id_jefe
+select * from empleados
+	)
+select * from subordinados;
