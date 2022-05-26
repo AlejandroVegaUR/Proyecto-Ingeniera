@@ -56,7 +56,7 @@ CREATE TABLE tickets(
 	FOREIGN KEY (id_vuelo) REFERENCES vuelo(id_vuelo)
 );
 
-CREATE TABLE Empleados(
+CREATE TABLE empleados(
 	id_empleado INT PRIMARY KEY,
 	nombre VARCHAR(80) NOT NULL,
 	apellido  VARCHAR(80) NOT NULL,
@@ -79,6 +79,8 @@ DROP  TABLE Aerolineas;
 DROP  table modelos;
 DROP table pasajeros;
 DROP table marcas;
+DROP table empleados;
+DROP table salarios;
 */
 
 
