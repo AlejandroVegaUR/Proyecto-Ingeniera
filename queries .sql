@@ -270,7 +270,7 @@ COMMIT;
 --consultas recursivas sobre empleados
 
 --todos los empleados de Jeremy Hughes
-with recursive subordinados
+with recursive subordinadosJ
 	as(
 
 		select id_jefe, id_empleado, nombre, apellido 
@@ -279,13 +279,13 @@ with recursive subordinados
 		union 
 		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
 		from Empleados e
-		inner join subordinados s on s.id_empleado = e.id_jefe
+		inner join subordinadosJ s on s.id_empleado = e.id_jefe
 
 	)
-select * from subordinados;
+select * from subordinadosJ;
 
 --todos los empleados de Brett Castro
-with recursive subordinados
+with recursive subordinadosB
 	as(
 
 		select id_jefe, id_empleado, nombre, apellido 
@@ -294,13 +294,13 @@ with recursive subordinados
 		union 
 		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
 		from Empleados e
-		inner join subordinados s on s.id_empleado = e.id_jefe
+		inner join subordinadosB s on s.id_empleado = e.id_jefe
 
 	)
-select * from subordinados;
+select * from subordinadosB;
 
 --todos los empleados de Collin Odom
-with recursive subordinados
+with recursive subordinadosC
 	as(
 
 		select id_jefe, id_empleado, nombre, apellido 
@@ -309,13 +309,13 @@ with recursive subordinados
 		union 
 		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
 		from Empleados e
-		inner join subordinados s on s.id_empleado = e.id_jefe
+		inner join subordinadosC s on s.id_empleado = e.id_jefe
 
 	)
-select * from subordinados;
+select * from subordinadosC;
 
 --todos los empleados de Jennifer Lloyd
-with recursive subordinados
+with recursive subordinadosL
 	as(
 
 		select id_jefe, id_empleado, nombre, apellido 
@@ -324,13 +324,13 @@ with recursive subordinados
 		union 
 		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
 		from Empleados e
-		inner join subordinados s on s.id_empleado = e.id_jefe
+		inner join subordinadosL s on s.id_empleado = e.id_jefe
 
 	)
-select * from subordinados;
+select * from subordinadosL;
 
 --todos los empleados de Jessica Morales
-with recursive subordinados
+with recursive subordinadosM
 	as(
 
 		select id_jefe, id_empleado, nombre, apellido 
@@ -339,7 +339,7 @@ with recursive subordinados
 		union 
 		select e.id_jefe, e.id_empleado, e.nombre, e.apellido
 		from Empleados e
-		inner join subordinados s on s.id_empleado = e.id_jefe
-select * from empleados
+		inner join subordinadosM s on s.id_empleado = e.id_jefe
+
 	)
-select * from subordinados;
+select * from subordinadosM;
