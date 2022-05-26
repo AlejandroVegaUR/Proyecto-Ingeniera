@@ -16,7 +16,13 @@ Instrucciones:
 
 5. Ejecute el archivo llamado queries.sql
 
-6. Descargue los archivos de la carpeta aplicación dash 
+6. Descargue los archivos de la carpeta aplicación dash, verifique que tiene instaladas las siguientes librerias: 
+  -dash
+  -pandas
+  -ploty.express
+  -psycopg2
+  -plotly.graph_objects
+  
 
 7. Ejecute el archivo Connection_p.py, verifique que el usuario sea 'postgres', que el puerto sea 5432 y ponga la contraseña de su usuario 
 
