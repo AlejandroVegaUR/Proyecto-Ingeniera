@@ -1,4 +1,11 @@
 --DDL
+
+CREATE TABLE paises(
+	iso_alpha VARCHAR(80) PRIMARY KEY, 
+	nombre VARCHAR(80)
+
+);
+
 CREATE TABLE marcas(
 	id_marca int PRIMARY KEY,
 	nombre varchar(80) NOT NULL
@@ -69,12 +76,6 @@ CREATE TABLE empleados(
 CREATE TABLE salarios(
 	id_empleado INT PRIMARY KEY REFERENCES empleados(id_empleado), 
 	salario REAL
-
-);
-
-CREATE TABLE paises(
-	iso_alpha VARCHAR(80) PRIMARY KEY, 
-	nombre VARCHAR(80)
 
 );
 
